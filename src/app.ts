@@ -30,6 +30,15 @@ app.get("/poke/:name", async (req, res) => {
   }
 });
 
+app.get("/ping", (req, res) => {
+  res.send("PING");
+});
+
+app.get("/hello/:id", (req, res) => {
+  const id = req.params.id;
+  res.send(`Hello, ${id}!`);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
