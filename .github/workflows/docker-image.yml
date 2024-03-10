@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build . --platform linux/arm64/v8 --file Dockerfile --tag srinathv31/docker-demo
+        run: docker build --platform linux/arm64/v8 --tag srinathv31/docker-demo .
 
       - name: Push Docker Image to repo
         run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-demo
