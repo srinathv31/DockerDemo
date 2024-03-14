@@ -37,6 +37,7 @@ app.get("/ping", (req, res) => {
 
 app.get("/hello/:id", (req, res) => {
   const id = req.params.id;
+  console.log("🚀 ~ app.get ~ id:", id);
   res.send(`Hello, ${id}!`);
 });
 
