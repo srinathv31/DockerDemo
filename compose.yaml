@@ -1,0 +1,11 @@
+services:
+  app:
+    image: node:20-slim
+    command: npm start
+    ports:
+      - 0.0.0.0:3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MY_SECRET:

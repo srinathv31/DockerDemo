@@ -1,6 +1,7 @@
 import express from "express";
 const app = express();
 const port = process.env.PORT || 3000;
+require("dotenv").config();
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -37,6 +38,12 @@ app.get("/ping", (req, res) => {
 app.get("/hello/:id", (req, res) => {
   const id = req.params.id;
   res.send(`Hello, ${id}!`);
+});
+
+app.get("/keytest", (req, res) => {
+  const SECRET_KEY = process.env.SECRET_KEY;
+  console.log("🚀 ~ app.get ~ SECRET_KEY:", SECRET_KEY);
+  res.send(`The key is: ${SECRET_KEY ?? "NOKEY"}`);
 });
 
 app.listen(port, () => {
