@@ -28,13 +28,13 @@ jobs:
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
         with:
-          project_id: "${{ env.PROJECT_ID }}"
+          project_id: "${{ secrets.PROJECT_ID }}"
 
       - name: "Docker auth"
         run: |-
-          gcloud auth configure-docker us-east4-docker.pkg.dev
+          gcloud auth configure-docker ${{ secrets.GAR_LOCATION }}-docker.pkg.dev
 
       - name: "Build and push container"
         run: |-
-          docker build --platform linux/arm64 -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.APP }}/${{ env.APP }}:${{ github.sha }}" ./app
-          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.APP }}/${{ env.APP }}:${{ github.sha }}"
+          docker build --platform linux/arm64 -t "${{ secrets.GAR_LOCATION }}-docker.pkg.dev/${{ secrets.PROJECT_ID }}/${{ secrets.APP }}/${{ secrets.APP }}:${{ github.sha }}" ./app
+          docker push "${{ secrets.GAR_LOCATION }}-docker.pkg.dev/${{ secrets.PROJECT_ID }}/${{ secrets.APP }}/${{ secrets.APP }}:${{ github.sha }}"
