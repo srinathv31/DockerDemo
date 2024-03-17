@@ -7,6 +7,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/version", (req, res) => {
+  res.send("v1.1");
+});
+
 app.get("/poke/:name", async (req, res) => {
   try {
     const pokeReqName = req.params.name;
