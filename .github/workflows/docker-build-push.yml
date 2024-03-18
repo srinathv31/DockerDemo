@@ -28,7 +28,7 @@ jobs:
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
         with:
-          project_id: "dynamic-circle-417519"
+          project_id: ${{ secrets.PROJECT_ID }}
 
       - name: "Docker auth"
         run: |-
