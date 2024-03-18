@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/version", (req, res) => {
-  res.send("v1.0.1");
+  res.send("v1.0.2");
 });
 
 app.get("/poke/:name", async (req, res) => {
