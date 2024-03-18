@@ -36,5 +36,5 @@ jobs:
 
       - name: "Build and push container"
         run: |-
-          docker build --platform linux/arm64 -t "${{ secrets.GAR_LOCATION }}-docker.pkg.dev/${{ secrets.PROJECT_ID }}/${{ secrets.APP }}/${{ secrets.APP }}:${{ github.sha }}"
+          docker build --platform linux/arm64 -t "${{ secrets.GAR_LOCATION }}-docker.pkg.dev/${{ secrets.PROJECT_ID }}/${{ secrets.APP }}/${{ secrets.APP }}:${{ github.sha }}" .
           docker push "${{ secrets.GAR_LOCATION }}-docker.pkg.dev/${{ secrets.PROJECT_ID }}/${{ secrets.APP }}/${{ secrets.APP }}:${{ github.sha }}"
