@@ -25,10 +25,13 @@ jobs:
           workload_identity_provider: "${{ secrets.WIF_PROVIDER }}"
           service_account: "${{ secrets.WIF_SERVICE_ACCOUNT }}"
 
+      - name: "Verify Service"
+        run: echo 'SERVICE - ${{ secrets.WIF_SERVICE_ACCOUNT }} ✅'
+
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v2"
         with:
-          project_id: dynamic-circle-417519
+          project_id: "dynamic-circle-417519"
 
       - name: "Docker auth"
         run: |-
