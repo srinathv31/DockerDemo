@@ -26,7 +26,7 @@ jobs:
           service_account: "${{ secrets.WIF_SERVICE_ACCOUNT }}"
 
       - name: "Set up Cloud SDK"
-        uses: "google-github-actions/setup-gcloud@v0"
+        uses: "google-github-actions/setup-gcloud@v2"
         with:
           project_id: "dynamic-circle-417519"
 
